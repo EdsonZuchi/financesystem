@@ -1,25 +1,27 @@
-import logo from './logo.svg';
+import "bootstrap/dist/css/bootstrap.min.css"
 import './App.css';
+import { BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
+import Auth from "./auth/Auth"
+import Menu from "./menu/Menu"
 
 function App() {
+  const isAuthenticated = loggedIn();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Navigate to={isAuthenticated ? "/menu" : "/auth"}/>}/>
+        <Route path="/auth" element={isAuthenticated ? <Navigate to="/menu"/> : <Auth/>}></Route>
+        <Route path="/menu" element={isAuthenticated ? <Menu/> : <Navigate to="/auth"/>} ></Route>
+      </Routes>
+    </BrowserRouter>
   );
+}
+
+function loggedIn(){
+  if(localStorage.getItem("user_id") != null){
+    return true; 
+  }
+  return false;
 }
 
 export default App;
