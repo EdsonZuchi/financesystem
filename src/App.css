@@ -11,3 +11,25 @@ label{
   font-weight: 600;
   color: rgb(34, 34, 34);
 }
+
+.app-container{
+  background-color: #387FA6;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+}
+
+.table-left{
+  text-align: left;
+}
+
+.table-right{
+  text-align: right;
+}
+
+.thead-fixo{
+  position: sticky;
+  top: 0;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,31 @@
+.side-bar{
+    width: 15vw;
+    height: 100vh;
+} 
+
+.bar-black{
+    color: black; 
+}
+
+.side-bar-li-list{
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.side-bar-ul-list{
+    gap: 10px;
+}
+
+.side-user{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.side-bar-list-margin{
+    border-left: 1px solid black;
+    margin-left: 5px;
+    margin-right: 5px;
+    opacity: 40%;
+}

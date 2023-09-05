@@ -1,0 +1,67 @@
+.bead-container{
+    display: flex;
+    width: 97%;
+    height: 97%;
+    border: 2px solid white;
+    margin: 10px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.bead-build{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+}
+
+.bead-button{
+    width: 100px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.bead-div-button{
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.bead-selector{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 50px;
+}
+
+.bead-selector-date{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    width: 50%;
+    margin-left: 5px;
+}
+
+.bead-select-group{
+    width: 50%;
+    margin-left: 5px;
+}
+
+.bead-text-selector{
+    margin-left: 5px;
+}
+
+.bead-month-total{
+    width: 50%;
+    margin-right: 5px;
+    text-align: right;
+}
+
+.bead-table{
+    width: 100%;
+    overflow-y: auto;
+}

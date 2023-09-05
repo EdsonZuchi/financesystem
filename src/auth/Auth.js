@@ -5,6 +5,14 @@ import { BsArrowRepeat } from 'react-icons/bs';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Auth.css'
 
+function getDateNow() {
+    const date = new Date();
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    return `${year}-${month}-${day}`;
+}
+
 export default function (props){
 
     let [authMode, setAuthMode] = useState("signin");
@@ -29,6 +37,7 @@ export default function (props){
     };
 
     const handleSingIn = (event) => {
+        event.preventDefault();
         setShowAlert(true);
         setIsSubmitting(true);
         setErrorMessage("");
@@ -44,8 +53,11 @@ export default function (props){
             let data = response.data;
             if(data.error != null){
                 setWarningMessage(data.error);
-            }else{
+            }else{  
                 localStorage.setItem("user_id", data.user.id);
+                localStorage.setItem("username", data.user.username);
+                localStorage.setItem("user_date", getDateNow());
+                window.location.reload();
             }
             setIsSubmitting(false);
         }) 
