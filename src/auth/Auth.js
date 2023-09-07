@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import axios from "axios";
 import { BsXSquare } from "react-icons/bs";
 import { BsArrowRepeat } from 'react-icons/bs';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './Auth.css'
 
 function getDateNow() {
@@ -56,7 +55,7 @@ export default function (props){
             }else{  
                 localStorage.setItem("user_id", data.user.id);
                 localStorage.setItem("username", data.user.username);
-                localStorage.setItem("user_date", getDateNow());
+                localStorage.setItem("user_date_login", getDateNow());
                 window.location.reload();
             }
             setIsSubmitting(false);

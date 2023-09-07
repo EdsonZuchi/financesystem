@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './Bead.css';
+import './Bill.css';
+import NewBill from './NewBill';
 import SideBar from '../sidenav/SideNav';
 import { BsFillCalendarFill } from 'react-icons/bs';
 
@@ -23,6 +23,19 @@ export default function (props){
     let [dateSelect, setDateSelect] = useState("");
     let [valueAmount, setValueAmount] = useState("");
     let [tableData, setTableData] = useState([]);
+
+    const handleInputChange = (event) => {
+        const { value }  = event.target;
+
+        const numericValue = value.replace(/\D/g, '');
+        if (numericValue.length <= 2) {
+            setDateSelect(numericValue);
+        } else {
+            const month = numericValue.slice(0, 2);
+            const year = numericValue.slice(2);
+            setDateSelect(`${month}/${year}`);
+        }
+    }
 
     const selectDate = () => {
         let arrayDate = dateSelect.split("/"); 
@@ -59,33 +72,34 @@ export default function (props){
     return (
         <div className="app-container">
             {<SideBar />}
-            <div className="bead-container bg-light">
-                <div className="bead-build bg-light">
-                    <div className="bead-div-button">
-                        <button type="button" className="btn btn-primary bead-button">New bead</button>
+            <div className="bill-container bg-light">
+
+                <div className="bill-build bg-light">
+                    <div className="bill-div-button">
+                        <NewBill/>
                     </div>
-                    <div className="bead-selector">
-                        <div className="bead-selector-date">
+                    <div className="bill-selector">
+                        <div className="bill-selector-date">
                             <BsFillCalendarFill/>
-                            <label className="bead-text-selector">Select month and year:</label>
-                            <div className="input-group bead-select-group">
+                            <label className="bill-text-selector">Select month and year:</label>
+                            <div className="input-group bill-select-group">
                                 <input 
                                     type="text" 
                                     className="form-control form-control-sm" 
                                     id="seletorDate" 
                                     placeholder="MM/AAAA" 
                                     value={dateSelect}
-                                    onChange={(event) => setDateSelect(event.target.value)}
+                                    onChange={handleInputChange}
                                 />
                                 <button className="btn btn-outline-secondary btn-sm" type="button" id="btnData" onClick={selectDate}>Select</button>
                             </div>
                         </div>
-                        <div className="bead-month-total">
+                        <div className="bill-month-total">
                             <label>Total in the month: R$&nbsp;</label>
                             <label id="value-final-month">{valueAmount}</label>
                         </div>
                     </div>
-                    <div className="bead-table">
+                    <div className="bill-table">
                         <table className="table table-striped table-hover">
                             <thead className="thead-fixo">
                                 <tr>
@@ -95,13 +109,13 @@ export default function (props){
                                     <th className="table-right">Value</th>
                                 </tr>
                             </thead>
-                            <tbody id="bead-tbody">
+                            <tbody id="bill-tbody">
                                 {tableData.map((item, index) => (
-                                    <tr key={index}>
-                                        <td className="table-left">{item.bead.title}</td>
-                                        <td className="table-left">{item.installment}</td>
+                                    <tr key={index} title={item.bill.description ? item.bill.description : ""}>
+                                        <td className="table-left">{item.bill.title}</td>
+                                        <td className="table-left">{item.installment}/{item.bill.installments}</td>
                                         <td className="table-left">{mask(new Date(item.referenceDate))}</td>
-                                        <td className="table-right">{format(item.value)}</td>
+                                        <td className="table-right">R$ {format(item.value)}</td>
                                     </tr>
                                 ))}
                             </tbody>

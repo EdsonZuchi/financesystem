@@ -1,4 +1,4 @@
-.bead-container{
+.bill-container{
     display: flex;
     width: 97%;
     height: 97%;
@@ -8,7 +8,7 @@
     padding: 10px;
 }
 
-.bead-build{
+.bill-build{
     display: flex;
     flex-direction: column;
     row-gap: 20px;
@@ -17,20 +17,14 @@
     height: 100%;
 }
 
-.bead-button{
-    width: 100px;
-    height: 40px;
-    margin-right: 10px;
-}
-
-.bead-div-button{
+.bill-div-button{
     display: flex;
     flex-direction: row-reverse;
     width: 100%;
     margin-top: 10px;
 }
 
-.bead-selector{
+.bill-selector{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -38,7 +32,7 @@
     height: 50px;
 }
 
-.bead-selector-date{
+.bill-selector-date{
     display: flex;
     align-items: center;
     justify-content: left;
@@ -46,22 +40,22 @@
     margin-left: 5px;
 }
 
-.bead-select-group{
+.bill-select-group{
     width: 50%;
     margin-left: 5px;
 }
 
-.bead-text-selector{
+.bill-text-selector{
     margin-left: 5px;
 }
 
-.bead-month-total{
+.bill-month-total{
     width: 50%;
     margin-right: 5px;
     text-align: right;
 }
 
-.bead-table{
+.bill-table{
     width: 100%;
     overflow-y: auto;
 }

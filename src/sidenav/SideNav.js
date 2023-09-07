@@ -1,5 +1,4 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navigate} from "react-router-dom";
 import { BsXSquare } from 'react-icons/bs';
 import { BsFolderFill } from 'react-icons/bs';
@@ -15,16 +14,16 @@ const SideNav = (props) => {
 
     return (
         <div className='d-flex flex-column flex-shrink-0 bg-light p-3 side-bar'>
-            <a className='d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none cursor-pointer'>
+            <a className='d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none cursor-pointer' href='./menu'>
                 Finance System
             </a>
             <hr></hr>
             <ul className='nav nav-pills flex-column mb-auto side-bar-ul-list'>
                 <li className='nav-item side-bar-li-list cursor-pointer'>
-                    <a className='nav-link bar-black' aria-current='page'>
+                    <a className='nav-link bar-black' aria-current='page' href='./bill'>
                         <BsFolderFill/>
                         <span className='side-bar-list-margin'></span>
-                        <span>Beads</span>
+                        <span>Bills</span>
                     </a>
                 </li>
             </ul>
