@@ -88,10 +88,12 @@ export default function (props){
             if(data.error != null){
                 setWarningMessage(data.error);
             }else{
-                console.log(data.user);
                 setUsername(data.user.username);
                 setbirthday(data.user.birthday);
-                setAuthMode("signin");
+                localStorage.setItem("user_id", data.user.id);
+                localStorage.setItem("username", data.user.username);
+                localStorage.setItem("user_date_login", getDateNow());
+                window.location.reload();
             }
             setIsSubmitting(false);
         })

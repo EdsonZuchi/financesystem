@@ -61,6 +61,7 @@ export default function (props){
             if(data.error != null){
                 console.log(data.error);
             }else{  
+                console.log(data.value);
                 setValueAmount(format(data.value));
             }
         })

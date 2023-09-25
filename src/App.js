@@ -10,8 +10,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Navigate to={isAuthenticated ? "/menu" : "/auth"}/>}/>
-        <Route path="/auth" element={isAuthenticated ? <Navigate to="/menu"/> : <Auth/>}></Route>
+        <Route path="/" element={<Navigate to={isAuthenticated ? "/bill" : "/auth"}/>}/>
+        <Route path="/auth" element={isAuthenticated ? <Navigate to="/bill"/> : <Auth/>}></Route>
         <Route path="/menu" element={isAuthenticated ? <Menu/> : <Navigate to="/auth"/>} ></Route>
         <Route path="/bill" element={isAuthenticated ? <Bill/> : <Navigate to="/auth"/>} ></Route>
       </Routes>
